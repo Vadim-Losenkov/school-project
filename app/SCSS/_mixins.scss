@@ -1,0 +1,22 @@
+@mixin listClear ($disp: inline-block) {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: $disp;
+}
+
+@mixin linkClear ($linkColor: #000) {
+  text-decoration: none;
+  color: $linkColor;
+}
+
+@mixin bdr {
+  content: "";
+  position: absolute;
+  width: 55px;
+  height: 3px;
+  background-color: #000;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
