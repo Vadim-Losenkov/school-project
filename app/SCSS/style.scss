@@ -19,7 +19,6 @@ html{
 body {
   font-family: 'Grandstander', 'Sans-Serif', cursive;
   font-weight: 500;
-  background-color: #7ec1c1;
   min-width: 1920px;
   color: #38353e;
 }
@@ -126,7 +125,7 @@ textarea {
 }
 
 .slider {
-  margin-bottom: 100px;
+  padding-bottom: 100px;
 
   &__container {
     max-width: 1320px;
@@ -244,7 +243,7 @@ textarea {
 .title {
   color: #38353e;
   text-align: center;
-  margin-bottom: 40px;
+  padding-bottom: 40px;
   &__head {
     text-transform: uppercase;
     font-size: 100px;
@@ -285,7 +284,7 @@ textarea {
 }
 .about {
   &-info {
-    margin-bottom: 100px;
+    padding-bottom: 100px;
     &__inner {
       display: flex;
       justify-content: space-between;
@@ -414,7 +413,7 @@ textarea {
     }
     &__btn {
       text-align: center;
-      margin-bottom: 80px;
+      padding-bottom: 80px;
     }
     &__all {
       margin-top: 45px;
@@ -486,7 +485,7 @@ textarea {
     &__button {
       width: 100%;
       text-align: center;
-      margin-bottom: 100px;
+      padding-bottom: 100px;
       &-link {
         margin-top: 45px;
         padding-top: 15px;
@@ -632,7 +631,7 @@ textarea {
     }
   }
   &-social {
-    margin-bottom: 100px;
+    padding-bottom: 100px;
     &__inner {
       display: flex;
       justify-content: space-between;
