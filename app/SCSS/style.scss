@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Grandstander:wght@400;500;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
 @import "normalize";
@@ -17,9 +17,10 @@ html{
 }
 
 body {
-  font-family: 'Grandstander', 'Sans-Serif', cursive;
+  font-family: 'Balsamiq Sans', 'Sans-Serif', cursive;
   font-weight: 500;
   min-width: 1920px;
+  zoom: .75;
   color: #38353e;
 }
 
@@ -62,10 +63,9 @@ textarea {
 }
 
 .header {
-  background-color: #7bbebe;
+  background-color: rgba(#7ec1c1, .9);
   height: 160px;
-  box-shadow: 1px 1px 3px rgba(#000, .2);
-  margin-bottom: 65px;
+  box-shadow: 2px 2px 5px rgba(#000, .2);
 
   & a {
     font-size: $title-fz;
@@ -84,7 +84,7 @@ textarea {
     }
 
     & li + li {
-      margin-left: 110px;
+      margin-left: 80px;
     }
   }
 
@@ -98,6 +98,7 @@ textarea {
 
 .retro {
   margin-bottom: 65px;
+  margin-top: 65px;
 
   &__inner {
   display: flex;
@@ -244,6 +245,7 @@ textarea {
   color: #38353e;
   text-align: center;
   padding-bottom: 40px;
+  margin-top: 65px;
   &__head {
     text-transform: uppercase;
     font-size: 100px;
@@ -599,9 +601,19 @@ textarea {
       box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
       height: 50px;
       padding: 15px 10px;
+      font-size: 20px;
       &::placeholder {
         font-size: 22px;
         color: #a9a9a9;
+      }
+      
+      &.false:focus {
+        border: 5px solid #ed0000;
+        border-radius: 10px;
+      }
+      &.true:focus {
+        border: 5px solid #10a400;
+        border-radius: 10px;
       }
     }
     textarea {
@@ -662,4 +674,35 @@ textarea {
       }
     }
   }
+}
+
+.wrapper-main {
+  display: none;
+}
+.wrapper-main.open {
+  display: block;
+}
+.wrapper-about {
+  display: none;
+}
+.wrapper-about.open {
+  display: block;
+}
+.wrapper-portfolio {
+  display: none;
+}
+.wrapper-portfolio.open {
+  display: block;
+}
+.wrapper-blog {
+  display: none;
+}
+.wrapper-blog.open {
+  display: block;
+}
+.wrapper-contact {
+  display: none;
+}
+.wrapper-contact.open {
+  display: block;
 }

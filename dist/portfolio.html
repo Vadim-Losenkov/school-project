@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.42">
+  <title>pifagor</title>
+  <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body style="background-color: #e28968;">
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <nav class="header__menu">
+          <ul class="header__menu-list">
+            <div class="list-1">
+              <li><a href="about.html">ABOUT ME</a></li>
+              <li><a href="#">PORTFOLIO</a></li>
+            </div>
+          </ul>
+          <div class="heaedr__logo">
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
+          </div>
+          <ul class="header__menu-list">
+            <div class="list-2">
+              <li><a href="blog.html">MY BLOG</a></li>
+              <li><a href="contact.html">CONTACT ME</a></li>
+            </div>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <section class="title">
+    <div class="container">
+      <h2 class="title__head">
+        PORTFOLIO
+      </h2>
+      <div class="title__times">
+        <span class="title__times-border"></span>
+        <div class="title__times-wrapper">
+          <i class="title__times-time"></i>
+          <i class="title__times-time"></i>
+          <i class="title__times-time"></i>
+        </div>
+        <span class="title__times-border"></span>
+      </div>
+      <h4 class="title__subtitle">
+        SIMPLICITY IS THE ULTIMATE SOPHISTICATION
+      </h4>
+    </div>
+  </section>
+  <div class="portfolio-works">
+    <div class="container-items">
+      <div class="portfolio-filter">
+        <span>Filter by</span>
+        <button type="submit" data-filter=".category-design">design</button>
+        <button type="submit" data-filter=".category-logo">logo</button>
+        <button type="submit" data-filter=".category-photography">photography</button>
+        <button type="submit" data-filter=".category-poster">poster</button>
+        <button type="submit" data-filter=".category-resourses">resourses</button>
+        <button type="submit" data-filter=".category-retro">retro</button>
+        <button type="submit" data-filter=".category-ts">t-shirts</button>
+        <button type="submit" data-filter=".category-videos">videos</button>
+      </div>
+      <div class="portfolio-items">
+        <a href="#" class="portfolio-item mix category-ts category-logo category-retro" data-order="1">
+          <div class="portfolio-item__img" style="background-image: url(images/item.jpg);"></div>
+          <div class="portfolio-item__icon">
+            <img src="images/volume-up.svg" alt="">
+          </div>
+          <div class="portfolio-item__name">
+            Galleries are funny
+          </div>
+        </a>
+        <a href="#" class="portfolio-item mix category-design category-poster category-retro" data-order="2">
+          <div class="portfolio-item__img" style="background-image: url(images/item.jpg);"></div>
+          <div class="portfolio-item__icon">
+            <img src="images/volume-up.svg" alt="">
+          </div>
+          <div class="portfolio-item__name">
+            Galleries are funny
+          </div>
+        </a>
+        <a href="#" class="portfolio-item mix category-videos category-photography" data-order="3">
+          <div class="portfolio-item__img" style="background-image: url(images/item.jpg);"></div>
+          <div class="portfolio-item__icon">
+            <img src="images/volume-up.svg" alt="">
+          </div>
+          <div class="portfolio-item__name">
+            Galleries are funny
+          </div>
+        </a>
+        <a href="#" class="portfolio-item mix category-resourses category-design" data-order="4">
+          <div class="portfolio-item__img" style="background-image: url(images/item.jpg);"></div>
+          <div class="portfolio-item__icon">
+            <img src="images/volume-up.svg" alt="">
+          </div>
+          <div class="portfolio-item__name">
+            Galleries are funny
+          </div>
+        </a>
+        <a href="#" class="portfolio-item mix category-videos category-photography" data-order="5">
+          <div class="portfolio-item__img" style="background-image: url(images/item.jpg);"></div>
+          <div class="portfolio-item__icon">
+            <img src="images/volume-up.svg" alt="">
+          </div>
+          <div class="portfolio-item__name">
+            Galleries are funny
+          </div>
+        </a>
+        <a href="#" class="portfolio-item mix category-ts category-photography" data-order="6">
+          <div class="portfolio-item__img" style="background-image: url(images/item.jpg);"></div>
+          <div class="portfolio-item__icon">
+            <img src="images/volume-up.svg" alt="">
+          </div>
+          <div class="portfolio-item__name">
+            Galleries are funny
+          </div>
+        </a>
+        <a href="#" class="portfolio-item mix category-resourses category-logo category-photography" data-order="7">
+          <div class="portfolio-item__img" style="background-image: url(images/item.jpg);"></div>
+          <div class="portfolio-item__icon">
+            <img src="images/volume-up.svg" alt="">
+          </div>
+          <div class="portfolio-item__name">
+            Galleries are funny
+          </div>
+        </a>
+        <a href="#" class="portfolio-item mix category-design category-photography category-videos category-resourses" data-order="8">
+          <div class="portfolio-item__img" style="background-image: url(images/item.jpg);"></div>
+          <div class="portfolio-item__icon">
+            <img src="images/volume-up.svg" alt="">
+          </div>
+          <div class="portfolio-item__name">
+            Galleries are funny
+          </div>
+        </a>
+      </div>
+      <div class="portfolio-filter__btn">
+        <button type="submit" class="portfolio-filter__all" data-filter="all">
+          browse All
+        </button>
+      </div>
+    </div>
+  </div>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/libs.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

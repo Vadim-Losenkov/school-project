@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="CSS/style.min.css">
 </head>
 
-<body style="background-color: #7ec1c1;">
+<body>
   <header class="header" data-toolbar="header">
     <div class="container">
       <div class="header__inner">
@@ -19,13 +19,13 @@
               <li><a href="#" data-class=".wrapper-portfolio">PORTFOLIO</a></li>
             </div>
           </ul>
-          <div class="heaedr__logo">
-            <a href="#"><img src="images/logo.png" alt="" data-class=".wrapper-main"></a>
+          <div class="heaedr__logo" data-class=".wrapper-main">
+            <a href="#"><img src="images/logo.png" alt=""></a>
           </div>
           <ul class="header__menu-list">
             <div class="list-2">
               <li><a href="#" data-class=".wrapper-blog">MY BLOG</a></li>
-              <li><a href="#" data-class=".wrapper-contact">КАЛЬКУЛЯТОР</a></li>
+              <li><a href="#" data-class=".wrapper-contact">CONTACT ME</a></li>
             </div>
           </ul>
         </nav>
@@ -401,7 +401,7 @@
     <section class="title contact">
       <div class="container">
         <h2 class="title__head">
-          Калькулятор
+          MY BLOG
         </h2>
         <div class="title__times">
           <span class="title__times-border"></span>
@@ -413,28 +413,27 @@
           <span class="title__times-border"></span>
         </div>
         <h4 class="title__subtitle">
-          Введите данные для расчета
+          I'LL BE GLAD TO ANSWER YOUR QUESTIONS!
         </h4>
       </div>
     </section>
     <section class="contact-form">
       <div class="container-form">
-        <form data-form="calculator">
-          <input type="text" data-type="counter" placeholder="Гипотенуза / Катет / Площадь" />
-          <input type="text" data-type="value" placeholder="Катет" />
-          <input type="text" data-type="value" placeholder="Гипотенуза" style="display: none;"/>
-          <input type="text" data-type="value" placeholder="Гипотенуза" />
-          <textarea data-type="ansver" placeholder="Ответ: "></textarea>
-          <button type="submit" data-type="submit">Посчитать!</button>
-          <div class="contact__button" data-type="formula">
-            <span class="contact__button-link">
-              c<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup>
-            </span>
-          </div>
+        <form>
+          <input type="text" placeholder="Name" />
+          <input type="text" placeholder="Email address" />
+          <input type="text" placeholder="Subject" />
+          <textarea placeholder=" Your message"></textarea>
+          <button type="submit">Send message</button>
         </form>
+        <div class="contact__button">
+          <a href="#" class="contact__button-link">
+            I am Social
+          </a>
+        </div>
       </div>
     </section>
-    <!--<div class="contact-social">
+    <div class="contact-social">
       <div class="container-form">
         <div class="contact-social__inner">
           <div class="contact-social__item">
@@ -465,12 +464,12 @@
         </div>
       </div>
     </div>
-  </div> -->
+  </div>
 
   <script src="js/jquery.min.js"></script>
   <script src="js/mixitup.min.js"></script>
   <script src="js/slick.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js"></script>
 </body>
 
 </html>
