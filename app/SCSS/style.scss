@@ -582,12 +582,42 @@ textarea {
       &::before {
         content: "";
         position: absolute;
-        width: 55px;
+        width: 60px;
         height: 3px;
         background-color: #f6edd8;
         bottom: 0;
         left: 50%;
         transform: translateX(-50%);
+      }
+      span {
+        margin-left: 25px;
+      }
+      span::before {
+        content: "";
+        background-image: url('../images/sqrt.svg');
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        left: 37px;
+        top: -7px;
+      }
+      span::after {
+        content: "";
+        position: absolute;
+        width: 70px;
+        height: 1.3px;
+        background-color: #f6edd8;
+        left: 64px;
+        top: -7px;
+      }
+      span.s::after {
+        content: "";
+        position: absolute;
+        width: 125px;
+        height: 1.3px;
+        background-color: #f6edd8;
+        left: 64px;
+        top: -7px;
       }
     }
   }
@@ -621,7 +651,9 @@ textarea {
       border: none;
       padding: 15px 10px;
       outline: none;
-      height: 225px;
+      height: 125px;
+      font-size: 26px;
+      font-weight: 700;
       border-radius: 5px;
       box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
       &::placeholder {
