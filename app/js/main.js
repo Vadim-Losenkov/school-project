@@ -71,9 +71,9 @@ class Calculator {
     this.catet2 = null
     this.gip = null
     
-    this.#render()
+    this.render()
   }
-  #render() {
+  render() {
     const html = () => {
       const inputSide = {
         value1: '<input type="text" data-info="catet" data-type="value-1" placeholder="Катет" />',
@@ -142,19 +142,19 @@ class Calculator {
               this.value = 'catet'
               this.inputType = 'Катет'
               this.formula = formuls[1]
-              this.#render()
+              this.render()
               break;
             case userValue === keyWords[1]:
               this.inputType = 'Гипотенуза'
               this.value = 'gip'
               this.formula = formuls[0]
-              this.#render()
+              this.render()
               break;
             case userValue === keyWords[2]:
               this.inputType = 'Площадь'
               this.value = 's'
               this.formula = formuls[2]
-              this.#render()
+              this.render()
               break;
           }
         } else {
@@ -186,11 +186,14 @@ class Calculator {
   submit() {
     const $button = this.form.querySelector('[data-type="submit"]')
     const $ansver = this.form.querySelector('[data-type="ansver"]')
-    $button.addEventListener('click', () => {
+    $button.addEventListener('click', event => {
       event.preventDefault()
       switch (true) {
         case this.value === 'catet':
-          $ansver.textContent = calcCatet(this.gip, this.catet)
+          const calc = calcCatet(this.gip, this.catet)
+          $ansver.textContent = Number.isNaN(calc)
+            ? 'гипотенуза не может быть меньше катета'
+            : calc
           break;
         case this.value === 'gip':
           $ansver.textContent = calcGip(this.catet, this.catet2)
@@ -216,14 +219,17 @@ class Calculator {
 const calculator = new Calculator('[data-form="calculator"]')
 
 const calcCatet = (gip, catet) => Math.sqrt(gip**2 - catet**2)
-const calcGip = (catet, catet2) => {
-  let result = Math.sqrt(catet2**2 + catet**2)
-  if (Number.isNaN(result)) {
-    result = 'Гипотенуза не может быть меньше катета'
-    return result
-    console.log('nan');
-  } else {
-    return result
-  }
-}
+const calcGip = (catet, catet2) => Math.sqrt(catet2**2 + catet**2)
 const calcS = (catet, catet2, gip) => Math.sqrt(gip**2 + catet**2 + catet2**2)
+
+// switch (true) {
+//   case this.catet <= 0:
+//     $ansver.textContent = 'катет/гипотенуза не может быть меньше 0 или равным ему'
+//     break;
+//   case this.catet2 <= 0:
+//     $ansver.textContent = 'катет/гипотенуза не может быть меньше 0 или равным ему'
+//     break;
+//   case this.gip <= 0:
+//     $ansver.textContent = 'катет/гипотенуза не может быть меньше 0 или равным ему'
+//     break;
+// }
