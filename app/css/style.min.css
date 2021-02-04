@@ -924,6 +924,7 @@ textarea {
   height: 50px;
   padding: 15px 10px;
   font-size: 20px;
+  font-weight: 700;
 }
 .contact-form input::placeholder {
   font-size: 22px;
@@ -1035,6 +1036,24 @@ textarea {
 
 .wrapper-contact.open {
   display: block;
+}
+
+.home {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background-color: #373737;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+.home::before {
+  content: "";
+  position: absolute;
+  background-image: url("../images/home.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 /*# sourceMappingURL=style.min.css.map */

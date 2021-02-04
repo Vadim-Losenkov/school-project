@@ -216,5 +216,14 @@ class Calculator {
 const calculator = new Calculator('[data-form="calculator"]')
 
 const calcCatet = (gip, catet) => Math.sqrt(gip**2 - catet**2)
-const calcGip = (catet, catet2) => Math.sqrt(catet2**2 + catet**2)
+const calcGip = (catet, catet2) => {
+  let result = Math.sqrt(catet2**2 + catet**2)
+  if (Number.isNaN(result)) {
+    result = 'Гипотенуза не может быть меньше катета'
+    return result
+    console.log('nan');
+  } else {
+    return result
+  }
+}
 const calcS = (catet, catet2, gip) => Math.sqrt(gip**2 + catet**2 + catet2**2)
