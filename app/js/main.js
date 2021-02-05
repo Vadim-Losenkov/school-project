@@ -3,7 +3,11 @@ $(function(){
     autoplay: true,
     autoplaySpeed: 500
   })
-  
+  const icon = $('[data-icon="bars"]')
+  icon.on('click', () => {
+    $('[data-menu="bars"]').toggleClass('open')
+    icon.toggleClass('open')
+  })
   mixitup('.portfolio-items')
 })
 
@@ -18,7 +22,6 @@ class Pagination {
   headerListener() {
     this.toolbar.addEventListener('click', event => {
       event.preventDefault()
-
       const pageClass = event.target.dataset.class
       if (pageClass !== undefined) {
         this.open(document.querySelector(pageClass))
@@ -49,7 +52,7 @@ class Pagination {
     page.classList.add('open')
   }
 }
-const pagination = new Pagination(
+new Pagination(
   '[data-toolbar="header"]',
   [
     '[data-type="main"]',
@@ -190,7 +193,7 @@ class Calculator {
       event.preventDefault()
       switch (true) {
         case this.value === 'catet':
-          const calc = calcCatet(this.gip, this.catet)
+          let calc = calcCatet(this.gip, this.catet)
           $ansver.textContent = Number.isNaN(calc)
             ? 'гипотенуза не может быть меньше катета'
             : calc
@@ -199,7 +202,10 @@ class Calculator {
           $ansver.textContent = calcGip(this.catet, this.catet2)
           break;
         case this.value === 's':
-          $ansver.textContent = calcS(this.gip, this.catet, this.catet2)
+          const calculate = calcS(this.gip, this.catet, this.catet2)
+          $ansver.textContent = this.gip < this.catet || this.catet2
+            ? 'гипотенуза не может быть меньше катета'
+            : calculate
           break;
       }
     })

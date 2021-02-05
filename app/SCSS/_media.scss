@@ -1,0 +1,145 @@
+@media (max-width: 1200px) {
+  .header {
+    &__logo {
+      display: none;
+    }
+    &__logo-adaptive {
+      display: block;
+      img {
+        margin-top: 30px;
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .header__logo-adaptive {
+    display: none;
+  }
+  .header {
+    height: 100px;
+    &__menu {
+      padding-top: 25px;
+    }
+  }
+  .header a {
+    font-size: 20px;
+  }
+  
+  .list-1 {
+    margin-left: 40px;
+  }
+  .list-2 {
+    margin-left: 80px;
+  }
+}
+
+@media (max-width: 850px) {
+  .list-1 {
+    margin-left: 20px;
+  }
+  .list-2 {
+    margin-left: 40px;
+  }
+  .header__menu {
+    justify-content: flex-start;
+    text-align: center;
+    padding-top: 40px;
+    max-width: 650px;
+    margin: 0 auto;
+    & li + li {
+      margin-left: 40px;
+    }
+  }
+}
+
+@media (max-width: 670px) {
+  .header__menu {
+    display: none;
+  }
+  .header__bars {
+    padding-top: 25px;
+    display: flex;
+    &-icon {
+      display: block;
+      width: 40px;
+      background-color: #7ec1c1;
+      z-index: 100;
+      transition: all .3s;
+      margin-top: 10px;
+      &.open {
+        .bar-once {
+          opacity: 0;
+        }
+        .bar-1 {
+          transition: all .3s;
+          transform: rotate(45deg) translate(40%, -50%);
+        }
+        .bar-3 {
+          transition: all .3s;
+          transform: rotate(-45deg) translate(45%, -50%);
+        }
+      }
+    }
+    .bar {
+      width: 40px;
+      margin-bottom: 7px;
+      background-color: #f6edd8;
+      height: 5px;
+      border-radius: 2px;
+    }
+    .bar-1 {
+      transition: all .3s;
+      transform: rotate(0deg) translate(0, 0);
+    }
+    .bar-3 {
+      transition: all .3s;
+      transform: rotate(0deg) translate(0, 0);
+    }
+    .bar-once {
+      transition: all .3s;
+      opacity: 1;
+    }
+    &-menu {
+      max-width: 600px;
+      width: 100%;
+      transform: translateX(-120%);
+      transition: all .5s;
+      opacity: 0;
+      &.open {
+        transform: translateX(20%);
+        transition: all .5s;
+        opacity: 1;
+      }
+      &__item {
+        display: flex;
+        margin-bottom: 10px;
+        a + a{
+          margin-left: 60px;
+        }
+        a {
+          position: relative;
+          padding-left: 15px;
+        }
+        a::before {
+          content: "";
+          position: absolute;
+          background-image: url('../images/angle-right.svg');
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          height: 12px;
+          width: 7px;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      &__link {
+        font-size: 20px;
+        color: #f6edd8;
+      }
+    }
+  }
+} 

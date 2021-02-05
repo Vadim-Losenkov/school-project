@@ -9,10 +9,36 @@
 </head>
 
 <body style="background-color: #7ec1c1;">
+  <div class="wrapper">
   <header class="header" data-toolbar="header">
-    <span class="home"></span>
+    <span class="home" data-class=".wrapper-main">
+      <img src="images/home.svg" data-class=".wrapper-main" alt="">
+    </span>
     <div class="container">
       <div class="header__inner">
+        <div class="header__bars">
+          <div class="header__bars-icon" data-icon="bars">
+            <div class="bar bar-1"></div>
+            <div class="bar bar-once"></div>
+            <div class="bar bar-3"></div>
+          </div>
+          <ul class="header__bars-menu" data-menu="bars">
+            <li class="header__bars-menu__item">
+              <a href="#" class="header__bars-menu__link" data-class=".wrapper-about">ABOUT ME</a>
+              <a href="#" class="header__bars-menu__link" data-class=".wrapper-portfolio">
+                PORTFOLIO
+              </a>
+            </li>
+            <li class="header__bars-menu__item">
+              <a href="#" class="header__bars-menu__link" data-class=".wrapper-blog">
+                MY BLOG
+              </a>
+              <a href="#" class="header__bars-menu__link" data-class=".wrapper-contact">
+                КАЛЬКУЛЯТОР
+              </a>
+            </li>
+          </ul>
+        </div>
         <nav class="header__menu">
           <ul class="header__menu-list">
             <div class="list-1">
@@ -20,8 +46,11 @@
               <li><a href="#" data-class=".wrapper-portfolio">PORTFOLIO</a></li>
             </div>
           </ul>
-          <div class="heaedr__logo">
+          <div class="header__logo">
             <a href="#"><img src="images/logo.png" alt="" data-class=".wrapper-main"></a>
+          </div>
+          <div class="header__logo-adaptive">
+            <a href="#"><img src="images/logo-adaptive.png" alt="" data-class=".wrapper-main"></a>
           </div>
           <ul class="header__menu-list">
             <div class="list-2">
@@ -425,6 +454,7 @@
         </form>
       </div>
     </section>
+  </div>
   </div>
 
   <script src="js/jquery.min.js"></script>

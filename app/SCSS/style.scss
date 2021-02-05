@@ -19,17 +19,22 @@ html{
 body {
   font-family: 'Balsamiq Sans', 'Sans-Serif', cursive;
   font-weight: 500;
-  min-width: 1920px;
   zoom: .75;
   color: #38353e;
+}
+
+.wrapper {
+  overflow: hidden;
 }
 
 a {
   @include linkClear;
 }
 
-li {
-  @include listClear;
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 p {
@@ -63,13 +68,26 @@ textarea {
 }
 
 .header {
-  background-color: rgba(#7ec1c1, .9);
+  background-color: #7ec1c1;
   height: 160px;
   box-shadow: 2px 2px 5px rgba(#000, .2);
+  &__bars {
+    display: none;
+  }
 
   & a {
     font-size: $title-fz;
     color: #f9ebd9;
+  }
+  
+  &__logo-adaptive {
+    display: none;
+  }
+  .list-1{
+    display: flex;
+  }
+  .list-2 {
+    display: flex;
   }
   
   &__menu {
@@ -78,6 +96,7 @@ textarea {
     align-items: center;
     position: relative;
     justify-content: space-between;
+    margin: 0 auto;
 
     &-list {
       padding: 0;
@@ -745,16 +764,15 @@ textarea {
   bottom: 40px;
   right: 40px;
   background-color: #373737;
-  height: 80px;
-  width: 80px;
   border-radius: 50%;
-  &::before {
-    content: "";
-    position: absolute;
-    background-image: url('../images/home.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 30px;
+  z-index: 9999;
+  img {
+    margin-top: 12px;
+    z-index: 9999;
   }
 }
 
