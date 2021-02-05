@@ -641,6 +641,16 @@ textarea {
     }
   }
   &-form {
+    form.error {
+      input {
+        border: 4px solid #ed0000;
+        border-radius: 10px;
+      }
+      textarea {
+        border: 4px solid #ed0000;
+        border-radius: 10px;
+      }
+    }
     input {
       width: 100%;
       border: none;
@@ -733,6 +743,9 @@ textarea {
 }
 .wrapper-main.open {
   display: block;
+  .home {
+    display: none;
+  }
 }
 .wrapper-about {
   display: none;

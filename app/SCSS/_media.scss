@@ -20,7 +20,11 @@
   .header {
     height: 100px;
     &__menu {
-      padding-top: 25px;
+      justify-content: flex-start;
+      text-align: center;
+      padding-top: 40px;
+      max-width: 850px;
+      margin: 0 auto;
     }
   }
   .header a {
@@ -142,4 +146,13 @@
       }
     }
   }
-} 
+}
+
+@media (max-width: 380px) {
+  .header__bars-menu__item {
+    a + a{
+      margin-left: 30px;
+      font-size: 18px;
+    }
+  }
+}

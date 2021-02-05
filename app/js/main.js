@@ -9,6 +9,9 @@ $(function(){
     icon.toggleClass('open')
   })
   mixitup('.portfolio-items')
+  if ($('.wrapper-main.open')) {
+    $('.home').css()
+  }
 })
 
 class Pagination {
@@ -82,6 +85,10 @@ class Calculator {
         value1: '<input type="text" data-info="catet" data-type="value-1" placeholder="Катет" />',
         value2: '<input type="text" data-info="catet2" data-type="value-2" placeholder="Катет" />',
         value3: '<input type="text" data-info="gip" data-type="value-3" placeholder="Гипотенуза" />',
+
+        s1: '<input type="text" data-info="catet" data-type="value-1" placeholder="1 сторона" />',
+        s2: '<input type="text" data-info="catet2" data-type="value-2" placeholder="2 сторона" />',
+        s3: '<input type="text" data-info="gip" data-type="value-3" placeholder="3 сторона" />'
       }
       
       function template(value) {
@@ -100,9 +107,9 @@ class Calculator {
             break;
           case 's':
             return `
-            ${inputSide.value1}
-            ${inputSide.value2}
-            ${inputSide.value3}
+            ${inputSide.s1}
+            ${inputSide.s2}
+            ${inputSide.s3}
             `
             break;
         }
@@ -195,17 +202,15 @@ class Calculator {
         case this.value === 'catet':
           let calc = calcCatet(this.gip, this.catet)
           $ansver.textContent = Number.isNaN(calc)
-            ? 'гипотенуза не может быть меньше катета'
-            : calc
+            ? this.valueError('гипотенуза не может быть меньше катета')
+            : this.clearValueError(calc)
           break;
         case this.value === 'gip':
           $ansver.textContent = calcGip(this.catet, this.catet2)
           break;
         case this.value === 's':
           const calculate = calcS(this.gip, this.catet, this.catet2)
-          $ansver.textContent = this.gip < this.catet || this.catet2
-            ? 'гипотенуза не может быть меньше катета'
-            : calculate
+          $ansver.textContent = calculate
           break;
       }
     })
@@ -219,6 +224,15 @@ class Calculator {
   falseClass(input) {
     input.classList.add('false')
     input.classList.remove('true')
+  }
+
+  valueError (text) {
+    this.form.classList.add('error')
+    return text
+  }
+  clearValueError (value) {
+    this.form.classList.remove('error')
+    return value
   }
 }
 
