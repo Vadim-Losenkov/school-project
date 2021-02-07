@@ -1,7 +1,7 @@
 $(function(){
   $('.slider__carousel-inner').slick({
     autoplay: true,
-    autoplaySpeed: 500
+    autoplaySpeed: 2000
   })
   const icon = $('[data-icon="bars"]')
   icon.on('click', () => {
@@ -9,9 +9,9 @@ $(function(){
     icon.toggleClass('open')
   })
   mixitup('.portfolio-items')
-  if ($('.wrapper-main.open')) {
+  /*if ($('.wrapper-main.open')) {
     $('.home').css()
-  }
+  } */
 })
 
 class Pagination {

@@ -67,12 +67,16 @@
       <div class="container">
         <div class="retro__inner">
           <div class="retro__title">
-            <img src="images/retro.png" alt="">
+            <img class="retro__title-default" src="images/retro.png" alt="">
+            <img class="retro__title-adaptive med" src="images/retro-adaptive.med.png" alt="">
+            <img class="retro__title-adaptive min" src="images/retro-adaptive.png" alt="">
           </div>
           <div class="retro__subtitle">
-            <img src="images/ribbon.png" alt="">
+            <img class="retro__ribbon" src="images/ribbon.png" alt="">
+            <img class="retro__ribbon-adaptive med" src="images/ribbon-adaptive.med.png" alt="">
+            <img class="retro__ribbon-adaptive min" src="images/ribbon-adaptive.med.png" alt="">
             <div class="retro__subtitle-text">
-              Lorem, ipsum dolor.
+              Все о теореме Пифагора
             </div>
           </div>
         </div>
@@ -97,10 +101,14 @@
 
           </div>
           <div class="slider__carousel-subtitle">
-            KODAK CAMERA
+            СМОТРИ НА САЙТЕ...
           </div>
         </div>
         <div class="slider__subtitle">
+          “HELLO, I AM JOHN DOE <br>
+          WELCOME TO RETRO, MY WONDERFUL THEME!”
+        </div>
+        <div class="slider__subtitle-adaptive">
           “HELLO, I AM JOHN DOE <br>
           WELCOME TO RETRO, MY WONDERFUL THEME!”
         </div>
@@ -233,14 +241,16 @@
       <div class="container-items">
         <div class="portfolio-filter">
           <span>Filter by</span>
-          <button type="submit" data-filter=".category-design">design</button>
-          <button type="submit" data-filter=".category-logo">logo</button>
-          <button type="submit" data-filter=".category-photography">photography</button>
-          <button type="submit" data-filter=".category-poster">poster</button>
-          <button type="submit" data-filter=".category-resourses">resourses</button>
-          <button type="submit" data-filter=".category-retro">retro</button>
-          <button type="submit" data-filter=".category-ts">t-shirts</button>
-          <button type="submit" data-filter=".category-videos">videos</button>
+          <div class="portfolio-filter__wrapper">
+            <button type="submit" data-filter=".category-design">design</button>
+            <button type="submit" data-filter=".category-logo">logo</button>
+            <button type="submit" data-filter=".category-photography">photography</button>
+            <button type="submit" data-filter=".category-poster">poster</button>
+            <button type="submit" data-filter=".category-resourses">resourses</button>
+            <button type="submit" data-filter=".category-retro">retro</button>
+            <button type="submit" data-filter=".category-ts">t-shirts</button>
+            <button type="submit" data-filter=".category-videos">videos</button>
+          </div>
         </div>
         <div class="portfolio-items">
           <a href="#" class="portfolio-item mix category-ts category-logo category-retro" data-order="1">

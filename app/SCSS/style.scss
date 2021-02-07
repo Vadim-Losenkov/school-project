@@ -129,6 +129,14 @@ textarea {
   &__title{
     margin-bottom: 40px;
   }
+  
+  &__title-adaptive {
+    display: none;
+  }
+  
+  &__ribbon-adaptive {
+    display: none;
+  }
 
   &__subtitle {
     position: relative;
@@ -146,9 +154,9 @@ textarea {
 
 .slider {
   padding-bottom: 100px;
-
   &__container {
     max-width: 1320px;
+    padding: 0 100px;
     margin: 0 auto;
   }
   
@@ -171,7 +179,7 @@ textarea {
   }
 
   &__slide {
-    height: 545px;
+    height: 540px;
     background-color: #e3dfd7;
     margin: 0 20px;
   }
@@ -180,6 +188,10 @@ textarea {
     font-size: 42px;
     color: #f7ebd8;
     text-align: center;
+    display: block;
+    &-adaptive {
+      display: none;
+    }
   }
 
   .slick {
@@ -310,11 +322,14 @@ textarea {
       display: flex;
       justify-content: space-between;
       width: 100%;
+      flex-wrap: wrap;
     }
     &__col {
       max-width: 250px;
       width: 100%;
       font-weight: 400;
+      padding: 20px;
+      padding-top: 0;
       &-title {
         text-align: center;
         font-size: 37px;
@@ -386,13 +401,21 @@ textarea {
 .portfolio {
   &-items {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
   }
   &-filter {
     margin-bottom: 25px;
+    margin-left: 50px;
+    display: flex;
+    align-items: flex-start;
     span {
       margin-right: 30px;
+      width: 100px;
+    }
+    &__wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
     }
     button {
       border: none;
@@ -402,15 +425,14 @@ textarea {
       padding: 6px 10px;
       padding-left: 18px;
       position: relative;
+      margin-bottom: 5px;
+      margin-right: 25px;
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.03);
       border-radius: 5px;
       border-bottom-left-radius: 0;
       border-top-left-radius: 0;
       cursor: pointer;
       outline: none;
-      & + button {
-        margin-left: 25px;
-      }
       &::after {
         content: "";
         position: absolute;
@@ -465,10 +487,11 @@ textarea {
     padding: 5px;
     padding-bottom: 20px;
     background-color: #fff;
-    margin-bottom: 25px;
     border-radius: 5px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
     position: relative;
+    margin-bottom: 25px;
+    margin-left: 30px;
     &__img {
       width: 290px;
       height: 220px;
@@ -533,6 +556,7 @@ textarea {
     &__item {
       margin-bottom: 45px;
       display: flex;
+      align-items: flex-start;
       &-img {
         box-shadow: 3px 3px 5px rgba(0, 0, 0, .2);
         padding: 5px;
@@ -641,6 +665,8 @@ textarea {
     }
   }
   &-form {
+    padding: 0 50px;
+    padding-bottom: 100px;
     form.error {
       input {
         border: 4px solid #ed0000;
@@ -737,7 +763,6 @@ textarea {
     }
   }
 }
-
 .wrapper-main {
   display: none;
 }

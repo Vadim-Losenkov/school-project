@@ -13,7 +13,7 @@
   "bugs": {
     "url": "https://github.com/Vadim-Losenkov/school-project/issues"
   },
-  "author": "Adilet",
+  "author": "Vadim Losenkov <vprog0729@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.13",
