@@ -19,7 +19,6 @@ html{
 body {
   font-family: 'Balsamiq Sans', 'Sans-Serif', cursive;
   font-weight: 500;
-  min-width: 1920px;
   zoom: .75;
   color: #38353e;
 }
@@ -112,7 +111,7 @@ textarea {
     position: absolute;
     top: 0;
     right: 52%;
-    transform: translateX(50%);
+    transform: translateX(55%);
   }
 }
 
@@ -685,9 +684,18 @@ textarea {
         border-radius: 10px;
       }
     }
-    input.main {
-      z-index: 20;
-    }
+    // input.main {
+    //   position: relative;
+    // }
+    // input.main::before {
+    //   content: "";
+    //   position: absolute;
+    //   right: 30px;
+    //   background-image: url('../images/angle-right.svg');
+    //   width: 10px;
+    //   height: 10px;
+    //   z-index: 200;
+    // }
     input {
       width: 100%;
       border: none;
@@ -777,22 +785,34 @@ textarea {
 }
 
 .select {
-  background-color: #fff;
   border: 3px solid  #000;
   border-radius: 7px;
   position: absolute;
-  right: 65px;
+  left: 0;
+  right: 0;
   display: none;
   z-index: 20;
+  background-color: #fff;
+  box-shadow: 5px 5px 100px rgba(#000, .5);
   &__item {
-    padding: 10px;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #fff;
+    transition: all .3s;
+    &:hover {
+      background-color: rgb(221, 221, 221);
+    }
   }
   &__item + &__item {
     border-top: 3px solid  #000;
   }
 }
 
-
+#select-wrapper {
+  position: relative;
+}
 
 .select.open {
   display: block;
@@ -802,7 +822,6 @@ textarea {
 }
 .wrapper-main.open {
   display: block;
-  
 }
 .wrapper-about {
   display: none;
@@ -842,10 +861,11 @@ textarea {
   z-index: 9999;
   transform: translate(0, 0);
   box-shadow: 5px 5px 50px rgba(#000, .4);
+  cursor: pointer;
   img {
     margin-top: 12px;
     z-index: 9999;
   }
 }
 
-//@import 'media';
+@import 'media';

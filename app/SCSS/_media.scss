@@ -125,20 +125,6 @@
       font-size: 18px;
     }
   }
-  .slider {
-    &__container{
-      padding: 0 50px;
-    }
-    &__carousel {
-      height: 350px;
-      &-subtitle {
-        font-size: 18px;
-      }
-    }
-    &__slide {
-      height: 290px;
-    }
-  }
   .retro {
     &__title-default {
       display: none;
@@ -184,6 +170,21 @@
     &-item {
       margin: 0;
       margin-bottom: 30px;
+    }
+  }
+
+  .slider {
+    &__container{
+      padding: 0 50px;
+    }
+    &__carousel {
+      height: 350px;
+      &-subtitle {
+        font-size: 18px;
+      }
+    }
+    &__slide {
+      height: 290px;
     }
   }
 }

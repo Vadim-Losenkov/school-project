@@ -133,9 +133,8 @@ class Calculator {
             Площадь
           </div>
         </div>
-        <input type="text" data-type="counter" placeholder="Гипотенуза / Катет / Площадь" class="true" value="${this.inputType}"/>
+        <input type="text" data-type="counter" placeholder="Гипотенуза / Катет / Площадь" class="true main" value="${this.inputType}"/>
       </div>
-      
       ${template(this.value)}
       <textarea data-type="ansver" placeholder="Ответ: "></textarea>
       <button type="submit" data-type="submit">Посчитать!</button>
