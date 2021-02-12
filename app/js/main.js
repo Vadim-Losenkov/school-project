@@ -121,18 +121,21 @@ class Calculator {
         return ''
       }
       return `
-      <div class="select" data-type="select">
-        <div class="select__item" data-id="cat">
-          Катет
+      <div id="select-wrapper">
+        <div class="select" data-type="select">
+          <div class="select__item" data-id="cat">
+            Катет
+          </div>
+          <div class="select__item" data-id="gip">
+            Гипотенуза
+          </div>
+          <div class="select__item" data-id="s">
+            Площадь
+          </div>
         </div>
-        <div class="select__item" data-id="gip">
-          Гипотенуза
-        </div>
-        <div class="select__item" data-id="s">
-          Площадь
-        </div>
+        <input type="text" data-type="counter" placeholder="Гипотенуза / Катет / Площадь" class="true" value="${this.inputType}"/>
       </div>
-      <input type="text" data-type="counter" placeholder="Гипотенуза / Катет / Площадь" class="true" value="${this.inputType}"/>
+      
       ${template(this.value)}
       <textarea data-type="ansver" placeholder="Ответ: "></textarea>
       <button type="submit" data-type="submit">Посчитать!</button>
