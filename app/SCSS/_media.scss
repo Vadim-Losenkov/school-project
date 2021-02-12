@@ -103,39 +103,6 @@
       margin: 0 auto;
     }
   }
-  
-  .blog {
-    &-items {
-      &__item {
-        flex-wrap: wrap;
-        &-img {
-          margin: 0 auto;
-          margin-bottom: 20px;
-        }
-        &-title {
-          text-align: center;
-        }
-        &-text {
-          margin-bottom: 70px;
-        }
-        &-user {
-          padding-right: 50px;
-          margin-bottom: 8px;
-        }
-        &-box{
-          padding: 0 50px;
-          margin: 0 auto;
-        }
-        &-subtitle {
-          flex-wrap: wrap;
-          &::before {
-            left: 50%;
-            transform: translateX(-50%);
-          }
-        }
-      }
-    }
-  }
 }
 
 @media (max-width: 950px) {
@@ -239,35 +206,17 @@
       &.open {
         .bar-once {
           opacity: 0;
+          transform: translateX(-100%);
         }
         .bar-1 {
-          transition: all .3s;
-          transform: rotate(45deg) translate(40%, -50%);
+          transition: all .5s;
+          transform: rotate(-315deg) translate(40%, -50%);
         }
         .bar-3 {
-          transition: all .3s;
-          transform: rotate(-45deg) translate(45%, -50%);
+          transition: all .5s;
+          transform: rotate(315deg) translate(45%, -50%);
         }
       }
-    }
-    .bar {
-      width: 40px;
-      margin-bottom: 7px;
-      background-color: #f6edd8;
-      height: 5px;
-      border-radius: 2px;
-    }
-    .bar-1 {
-      transition: all .3s;
-      transform: rotate(0deg) translate(0, 0);
-    }
-    .bar-3 {
-      transition: all .3s;
-      transform: rotate(0deg) translate(0, 0);
-    }
-    .bar-once {
-      transition: all .3s;
-      opacity: 1;
     }
     &-menu {
       max-width: 600px;
@@ -279,6 +228,11 @@
         transform: translateX(20%);
         transition: all .5s;
         opacity: 1;
+      }
+      &__item.upper {
+        a + a{
+          margin-left: 44px;
+        }
       }
       &__item {
         display: flex;
@@ -308,6 +262,45 @@
         font-size: 20px;
         color: #f6edd8;
       }
+    }
+    &-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #f6edd8;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-46%);
+      width: 300px;
+      text-align: center;
+      margin-top: 10px;
+      transition: all .5s;
+      &.close {
+        transition: all .7s;
+        transform: translateX(120%);
+        font-size: 0;
+        width: 0;
+        height: 0;
+        color: #7ec1c1;
+      }
+    }
+    .bar {
+      width: 40px;
+      margin-bottom: 7px;
+      background-color: #f6edd8;
+      height: 5px;
+      border-radius: 2px;
+    }
+    .bar-1 {
+      transition: all .5s;
+      transform: rotate(0deg) translate(0, 0);
+    }
+    .bar-3 {
+      transition: all .5s;
+      transform: rotate(0deg) translate(0, 0);
+    }
+    .bar-once {
+      transition: all .5s;
+      opacity: 1;
     }
   }
   .retro__subtitle-text {

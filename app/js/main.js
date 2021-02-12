@@ -6,6 +6,7 @@ $(function(){
   const icon = $('[data-icon="bars"]')
   icon.on('click', () => {
     $('[data-menu="bars"]').toggleClass('open')
+    $('[data-menu="title"]').toggleClass('close')
     icon.toggleClass('open')
   })
   mixitup('.portfolio-items')
@@ -77,6 +78,12 @@ class Calculator {
     this.catet2 = null
     this.gip = null
     
+    this.formuls = [
+      'c = <span>a<sup>2</sup> + b<sup>2</sup></span>',
+      'a = <span>c<sup>2</sup> - b<sup>2</sup></span>',
+      's = (A × B)/2 '
+    ]
+    
     this.render()
   }
   render() {
@@ -87,8 +94,7 @@ class Calculator {
         value3: '<input type="text" data-info="gip" data-type="value-3" placeholder="Гипотенуза" />',
 
         s1: '<input type="text" data-info="catet" data-type="value-1" placeholder="1 сторона" />',
-        s2: '<input type="text" data-info="catet2" data-type="value-2" placeholder="2 сторона" />',
-        s3: '<input type="text" data-info="gip" data-type="value-3" placeholder="3 сторона" />'
+        s2: '<input type="text" data-info="catet2" data-type="value-2" placeholder="2 сторона" />'
       }
       
       function template(value) {
@@ -109,13 +115,23 @@ class Calculator {
             return `
             ${inputSide.s1}
             ${inputSide.s2}
-            ${inputSide.s3}
             `
             break;
         }
         return ''
       }
       return `
+      <div class="select" data-type="select">
+        <div class="select__item" data-id="cat">
+          Катет
+        </div>
+        <div class="select__item" data-id="gip">
+          Гипотенуза
+        </div>
+        <div class="select__item" data-id="s">
+          Площадь
+        </div>
+      </div>
       <input type="text" data-type="counter" placeholder="Гипотенуза / Катет / Площадь" class="true" value="${this.inputType}"/>
       ${template(this.value)}
       <textarea data-type="ansver" placeholder="Ответ: "></textarea>
@@ -129,6 +145,39 @@ class Calculator {
     }
     this.form.innerHTML = html()
     this.input()
+    this.clickHandler()
+  }
+  
+  clickHandler() {
+    const select = this.form.querySelector('[data-type="select"]')
+    document.addEventListener('click', event => {
+      const {type, id} = event.target.dataset
+      type === 'counter'
+        ? selectOpener(select).open()
+        : selectOpener(select).close()
+    })
+    
+    select.addEventListener('click', event => {
+      const {id} = event.target.dataset
+      if (id === 'cat') {
+        this.value = 'catet'
+        this.inputType = 'Катет'
+        this.formula = this.formuls[1]
+        this.render()
+      }
+      if (id === 'gip') {
+        this.inputType = 'Гипотенуза'
+        this.value = 'gip'
+        this.formula = this.formuls[0]
+        this.render()
+      }
+      if (id === 's') {
+        this.inputType = 'Площадь'
+        this.value = 's'
+        this.formula = this.formuls[2]
+        this.render()
+      }
+    })
   }
   
   input() {
@@ -142,7 +191,7 @@ class Calculator {
       const formuls = [
         'c = <span>a<sup>2</sup> + b<sup>2</sup></span>',
         'a = <span>c<sup>2</sup> - b<sup>2</sup></span>',
-        's = <span class="s">a<sup>2</sup> + b<sup>2</sup> + c<sup>2</sup></span>'
+        's = (A × B)/2 '
       ]
       if (type === 'counter') {
         if (keyWords.includes(userValue)) {
@@ -151,19 +200,19 @@ class Calculator {
             case userValue === keyWords[0]:
               this.value = 'catet'
               this.inputType = 'Катет'
-              this.formula = formuls[1]
+              this.formula = this.formuls[1]
               this.render()
               break;
             case userValue === keyWords[1]:
               this.inputType = 'Гипотенуза'
               this.value = 'gip'
-              this.formula = formuls[0]
+              this.formula = this.formuls[0]
               this.render()
               break;
             case userValue === keyWords[2]:
               this.inputType = 'Площадь'
               this.value = 's'
-              this.formula = formuls[2]
+              this.formula = this.formuls[2]
               this.render()
               break;
           }
@@ -209,7 +258,7 @@ class Calculator {
           $ansver.textContent = calcGip(this.catet, this.catet2)
           break;
         case this.value === 's':
-          const calculate = calcS(this.gip, this.catet, this.catet2)
+          const calculate = calcS(this.catet, this.catet2)
           $ansver.textContent = calculate
           break;
       }
@@ -240,11 +289,31 @@ const calculator = new Calculator('[data-form="calculator"]')
 
 const calcCatet = (gip, catet) => Math.sqrt(gip**2 - catet**2)
 const calcGip = (catet, catet2) => Math.sqrt(catet2**2 + catet**2)
-const calcS = (catet, catet2, gip) => Math.sqrt(gip**2 + catet**2 + catet2**2)
+const calcS = (catet, catet2) => (catet*catet2)/2
+
+function selectOpener(select) {
+  function toggle() {
+    isOpen() ? close() : open()
+  }
+  function isOpen() {
+    return select.classList.contains('open')
+  }
+  function open() {
+    return select.classList.add('open')
+  }
+  function close() {
+    return select.classList.remove('open')
+  }
+  
+  return {
+    open,
+    close
+  }
+}
 
 // switch (true) {
 //   case this.catet <= 0:
-//     $ansver.textContent = 'катет/гипотенуза не может быть меньше 0 или равным ему'
+//     $ansver.textConten.t = 'катет/гипотенуза не может быть меньше 0 или равным ему'
 //     break;
 //   case this.catet2 <= 0:
 //     $ansver.textContent = 'катет/гипотенуза не может быть меньше 0 или равным ему'

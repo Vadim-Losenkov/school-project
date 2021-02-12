@@ -19,6 +19,7 @@ html{
 body {
   font-family: 'Balsamiq Sans', 'Sans-Serif', cursive;
   font-weight: 500;
+  min-width: 1920px;
   zoom: .75;
   color: #38353e;
 }
@@ -339,7 +340,6 @@ textarea {
       }
       &-subtitle {
         text-align: center;
-        text-transform: uppercase;
         padding-bottom: 25px;
         margin-bottom: 20px;
         position: relative;
@@ -383,16 +383,16 @@ textarea {
   left: 50%;
   transform: translate(-50%, -50%);
   &.movies {
-    background-image: url('../images/movies-icon.svg');
+    background-image: url('../images/church.svg');
   }
   &.music{
-    background-image: url('../images/music-icon.svg');
+    background-image: url('../images/square-root-alt.svg');
   }
   &.clothes {
-    background-image: url('../images/clothes-icon.svg');
+    background-image: url('../images/hat.svg');
   }
   &.food {
-    background-image: url('../images/food-icon.svg');
+    background-image: url('../images/heart.svg');
   }
 }
 // ended page 2 
@@ -604,7 +604,39 @@ textarea {
     }
   }
 }
-
+.blog {
+  &-items {
+    &__item {
+      flex-wrap: wrap;
+      &-img {
+        margin: 0 auto;
+        margin-bottom: 20px;
+      }
+      &-title {
+        text-align: center;
+      }
+      &-text {
+        margin-bottom: 70px;
+      }
+      &-user {
+        padding-right: 50px;
+        margin-bottom: 8px;
+      }
+      &-box{
+        padding: 0 50px;
+        margin: 0 auto;
+      }
+      &-subtitle {
+        flex-wrap: wrap;
+        &::before {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+}
+  
 .contact {
   &__button {
     width: 100%;
@@ -677,6 +709,9 @@ textarea {
         border-radius: 10px;
       }
     }
+    input.main {
+      z-index: 20;
+    }
     input {
       width: 100%;
       border: none;
@@ -688,6 +723,7 @@ textarea {
       padding: 15px 10px;
       font-size: 20px;
       font-weight: 700;
+      
       &::placeholder {
         font-size: 22px;
         color: #a9a9a9;
@@ -763,14 +799,34 @@ textarea {
     }
   }
 }
+
+.select {
+  background-color: #fff;
+  border: 3px solid  #000;
+  border-radius: 7px;
+  position: absolute;
+  right: 65px;
+  display: none;
+  z-index: 20;
+  &__item {
+    padding: 10px;
+  }
+  &__item + &__item {
+    border-top: 3px solid  #000;
+  }
+}
+
+
+
+.select.open {
+  display: block;
+}
 .wrapper-main {
   display: none;
 }
 .wrapper-main.open {
   display: block;
-  .home {
-    display: none;
-  }
+  
 }
 .wrapper-about {
   display: none;
@@ -808,10 +864,11 @@ textarea {
   background-size: cover;
   padding: 30px;
   z-index: 9999;
+  transform: translate(0, 0);
   img {
     margin-top: 12px;
     z-index: 9999;
   }
 }
 
-@import 'media';
+//@import 'media';
