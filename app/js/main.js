@@ -3,6 +3,10 @@ $(function(){
     autoplay: true,
     autoplaySpeed: 2000
   })
+  $('.blog-items__button-link').on('click', e => {
+    e.preventDefault()
+    $('body, html').animate({scrollTop: top}, 0)
+  });
   const icon = $('[data-icon="bars"]')
   icon.on('click', () => {
     $('[data-menu="bars"]').toggleClass('open')
@@ -14,7 +18,6 @@ $(function(){
     $('.home').css()
   } */
 })
-
 class Pagination {
   constructor(toolbar, elements = []) {
     this.toolbar = document.querySelector(toolbar)
@@ -154,13 +157,16 @@ class Calculator {
     const select = this.form.querySelector('[data-type="select"]')
     document.addEventListener('click', event => {
       const {type, id} = event.target.dataset
-      type === 'counter'
-        ? selectOpener(select).open()
-        : selectOpener(select).close()
+      if (type === 'counter') {
+        selectOpener(select).open()
+        this.clearValueError(this.form)
+      } else {
+        selectOpener(select).close()
+      }
     })
-    
     select.addEventListener('click', event => {
       const {id} = event.target.dataset
+      this.clearValueError(this.form)
       if (id === 'cat') {
         this.value = 'catet'
         this.inputType = 'Катет'
@@ -223,7 +229,7 @@ class Calculator {
         }
       } else if(inputValues.includes(type)) {
         const countValue = +userValue
-        if (!Number.isNaN(countValue) || countValue === 0) {
+        if (!Number.isNaN(countValue)) {
           this.trueClass($el)
           switch (true) {
             case info === 'catet':
@@ -238,34 +244,40 @@ class Calculator {
           }
         } else {
           this.falseClass($el)
+          this.submit(true)
         }
       }
     })
     this.submit()
   }
   
-  submit() {
+  submit(err) {
     const $button = this.form.querySelector('[data-type="submit"]')
     const $ansver = this.form.querySelector('[data-type="ansver"]')
+    
     $button.addEventListener('click', event => {
-      event.preventDefault()
-      switch (true) {
-        case this.value === 'catet':
-          let calc = calcCatet(this.gip, this.catet)
-          $ansver.textContent = Number.isNaN(calc)
-            ? this.valueError('гипотенуза не может быть меньше катета')
-            : this.clearValueError(calc)
-          break;
-        case this.value === 'gip':
-          $ansver.textContent = calcGip(this.catet, this.catet2)
-          break;
-        case this.value === 's':
-          const calculate = calcS(this.catet, this.catet2)
-          $ansver.textContent = calculate
-          break;
+      if (err) {
+        $ansver.textContent = this.valueError('введены некорректные значения')
+      } else {
+        event.preventDefault()
+        switch (true) {
+          case this.value === 'catet':
+            let calc = calcCatet(this.gip, this.catet)
+            $ansver.textContent = Number.isNaN(calc)
+              ? this.valueError('гипотенуза не может быть меньше катета')
+              : this.clearValueError(calc)
+            break;
+          case this.value === 'gip':
+            $ansver.textContent = calcGip(this.catet, this.catet2)
+            break;
+          case this.value === 's':
+            const calculate = calcS(this.catet, this.catet2)
+            $ansver.textContent = calculate
+            break;
+        }
       }
     })
-  } 
+  }
 
   trueClass(input) {
     input.classList.add('true')
