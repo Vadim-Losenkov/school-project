@@ -505,7 +505,7 @@ textarea {
     
     &__img.open {
       position: absolute;
-      transform: translate(-20%, -70%);
+      transform: translate(0, -50%);
       z-index: 1500;
       transition: all .1s;
     }
@@ -896,6 +896,19 @@ textarea {
   bottom: 0;
   opacity: 1;
   transition: all .3s;
+}
+
+.popup {
+  display: none;
+  right: 0;
+  left: 0;
+  height: 800px;
+  position: absolute;
+  top: 5rem;
+  z-index: 2000px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 @import 'media';

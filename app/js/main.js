@@ -339,23 +339,23 @@ class Gallery {
     this.$overlay.addEventListener('click', event => {
       selectOpener(this.$img).close()
       selectOpener(this.$overlay).close()
-      this.$img.style.width = '290px'
-      this.$img.style.height = '220px'
       document.querySelector('body').style.overflow = 'visible'
+      this.$img.style.display = 'none'
     })
   }
   
   clickHandler(event) {
     event.preventDefault()
     const $el = event.target.closest('[data-type="gallery-item"]')
-    this.$img = $el.querySelector('.portfolio-item__img')
+    const index = $el.dataset.order
+    this.$img = document.querySelector(`.portfolio-item__img-${index}`)
     
     selectOpener(this.$img).open()
     selectOpener(this.$overlay).open()
     document.querySelector('body').style.overflow = 'hidden'
     if (this.$img.classList.contains('open')) {
-      this.$img.style.width = (innerWidth + innerWidth * 0.25) + 'px'
-      this.$img.style.height = '400px'
+      this.$img.style.display = 'block'
+      this.$img.style.zIndex = '3000'
     }
   }
   
