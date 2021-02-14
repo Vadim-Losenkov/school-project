@@ -1,7 +1,7 @@
 $(function(){
   $('.slider__carousel-inner').slick({
     autoplay: true,
-    autoplaySpeed: 2000
+    autoplaySpeed: 1000
   })
   $('.blog-items__button-link').on('click', e => {
     e.preventDefault()
@@ -321,9 +321,56 @@ function selectOpener(select) {
   
   return {
     open,
-    close
+    close,
+    toggle
   }
 }
+
+class Gallery {
+  constructor($main, $overlay) {
+    this.$main = document.querySelector($main)
+    this.$overlay = this.$main.querySelector($overlay)
+    this.img = ''
+    
+    this.init()
+  }
+  
+  overlayHandler () {
+    this.$overlay.addEventListener('click', event => {
+      selectOpener(this.$img).close()
+      selectOpener(this.$overlay).close()
+      this.$img.style.width = '290px'
+      this.$img.style.height = '220px'
+      document.querySelector('body').style.overflow = 'visible'
+    })
+  }
+  
+  clickHandler(event) {
+    event.preventDefault()
+    const $el = event.target.closest('[data-type="gallery-item"]')
+    this.$img = $el.querySelector('.portfolio-item__img')
+    
+    selectOpener(this.$img).open()
+    selectOpener(this.$overlay).open()
+    document.querySelector('body').style.overflow = 'hidden'
+    if (this.$img.classList.contains('open')) {
+      this.$img.style.width = (innerWidth + innerWidth * 0.25) + 'px'
+      this.$img.style.height = '400px'
+    }
+  }
+  
+  init() {
+    this.$main.addEventListener('click', event => this.clickHandler(event))
+    this.overlayHandler()
+  }
+  
+  destroy() {
+    this.$main.removeEventListener('click', event => this.clickHandler(event))
+  }
+}
+
+new Gallery('.portfolio-items', '[data-overlay="img"]')
+
 
 // switch (true) {
 //   case this.catet <= 0:
